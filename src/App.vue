@@ -1,15 +1,42 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+      <h1>
+        Counter:{{ counter }}
+      </h1>
+      <button @click="increment">Increment</button> 
+      <button @click="reset">Reset</button>
+      <button @click="decrement">Decrement</button>
+      <input
+      type="number"
+      placeholder="setValue"
+      ref="inputField"
+      />
+      <button @click="setValue">Set Value</button>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  computed: {
+    counter(){
+      return this.$store.getters.counter;
+    }
+  } ,
+  methods: {
+    increment(){
+      this.$store.commit('increment');
+    },
+    reset(){
+      this.$store.commit('reset');
+    },
+    decrement(){
+      this.$store.commit('decrement');
+    },
+    setValue(){
+      this.$store.commit('setValue', this.$refs.inputField.value);
+    }
   }
 }
 </script>
