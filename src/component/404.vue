@@ -1,16 +1,15 @@
 <template>
-  <router-link to="/counter">HomePage</router-link>
-  <router-view />
+  <h1>Page not found</h1>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'NotFound'
 }
 </script>
 
-<style>
-#app {
+<style scoped>
+h1 {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
